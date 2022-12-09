@@ -11,5 +11,8 @@ namespace Lesignobles\BaseApiLaravel\Http\Controllers;
 
 class BaseApiController
 {
-
+    public function successResponse(): bool
+    {
+        return true;
+    }
 }

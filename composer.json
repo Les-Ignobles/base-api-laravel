@@ -1,6 +1,7 @@
 {
     "name": "lesignobles/base-api-laravel",
     "description": "Base api scaffolding",
+    "license": ["MIT"],
     "autoload": {
         "psr-4": {
             "Lesignobles\\BaseApiLaravel\\": "src/"

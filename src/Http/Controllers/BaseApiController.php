@@ -6,7 +6,7 @@
  */
 
 
-namespace Lesignobles\BaseApiLaravel\Http\Controllers;
+namespace LesIgnobles\BaseApiLaravel\Http\Controllers;
 
 
 class BaseApiController

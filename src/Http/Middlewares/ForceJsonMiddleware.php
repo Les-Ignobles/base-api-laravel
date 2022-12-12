@@ -6,7 +6,7 @@
  */
 
 
-namespace Lesignobles\BaseApiLaravel\Http\Middlewares;
+namespace LesIgnobles\BaseApiLaravel\Http\Middlewares;
 
 
 use Closure;

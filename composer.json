@@ -4,7 +4,7 @@
     "license": ["MIT"],
     "autoload": {
         "psr-4": {
-            "Lesignobles\\BaseApiLaravel\\": "src/"
+            "LesIgnobles\\BaseApiLaravel\\": "src/"
         }
     },
     "authors": [
@@ -15,5 +15,12 @@
     ],
     "require-dev": {
         "orchestra/testbench": "^7.15"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LesIgnobles\\BaseApiLaravel\\PackageServiceProvider"
+            ]
+        }
     }
 }

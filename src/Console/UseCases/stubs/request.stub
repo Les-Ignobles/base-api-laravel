@@ -1,0 +1,23 @@
+<?php
+
+namespace {{ namespace }};
+
+
+use LesIgnobles\BaseApiLaravel\Http\Requests\BaseApiRequest;
+
+class {{ class }} extends BaseApiRequest
+{
+    public function getData(): {{ name }}Data
+    {
+        return new {{ name }}Data(
+
+        );
+    }
+
+    public function rules(): array
+    {
+        return [
+            // Write validation request rules here ma boy ...
+        ];
+    }
+}

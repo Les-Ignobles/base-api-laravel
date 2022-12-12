@@ -1,0 +1,13 @@
+<?php
+
+namespace {{ namespace }};
+
+
+class {{ class }}
+{
+    public function handle({{ name }}Data $data): {{ name }}Response
+    {
+        // Write usecase logic here ...
+        return new {{ name }}Response();
+    }
+}

@@ -6,7 +6,7 @@
  */
 
 
-namespace Lesignobles\BaseApiLaravel\Repositories;
+namespace LesIgnobles\BaseApiLaravel\Repositories;
 
 
 use Illuminate\Database\Eloquent\Model;

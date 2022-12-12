@@ -6,7 +6,7 @@
  */
 
 
-namespace Lesignobles\BaseApiLaravel\Http\Requests;
+namespace LesIgnobles\BaseApiLaravel\Http\Requests;
 
 
 use Illuminate\Http\Request;

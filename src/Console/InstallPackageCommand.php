@@ -10,11 +10,11 @@ namespace LesIgnobles\BaseApiLaravel\Console;
 
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
-use LesIgnobles\BaseApiLaravel\PackageServiceProvider;
 
 class InstallPackageCommand extends Command
 {
+    const SERVICE_PROVIDER_NAMESPACE = 'LesIgnobles\BaseApiLaravel\PackageServiceProvider';
+
     protected $signature = 'bap:install';
     protected $description = 'Install Base Api Package';
 
@@ -23,45 +23,30 @@ class InstallPackageCommand extends Command
         $this->info('Installing Base Api Package...');
 
         $this->info('Publishing configuration...');
+        $this->publishConfiguration();
 
-        if (!$this->configExists()) {
-            $this->publishConfiguration();
-            $this->info('Published configuration');
-        } else {
-            if ($this->shouldOverwriteConfig()) {
-                $this->info('Overwriting configuration file...');
-                $this->publishConfiguration($force = true);
-            } else {
-                $this->info('Existing configuration was not overwritten');
-            }
-        }
+        $this->info('Publishing controllers...');
+        $this->publishControllers();
 
-        $this->info('Installed Base Api Package');
+        $this->info('Base Api Package successfully installed !');
     }
 
-    private function configExists(): bool
-    {
-        return File::exists(config_path(PackageServiceProvider::BASE_API_CONFIG_NAME));
-    }
-
-    private function shouldOverwriteConfig(): bool
-    {
-        return $this->confirm(
-            'Config file already exists. Do you want to overwrite it?',
-            false
-        );
-    }
-
-    private function publishConfiguration($forcePublish = false)
+    private function publishConfiguration()
     {
         $params = [
-            '--provider' => "LesIgnobles\BaseApiLaravel\PackageServiceProvider",
+            '--provider' => self::SERVICE_PROVIDER_NAMESPACE,
             '--tag'      => "config"
         ];
 
-        if ($forcePublish === true) {
-            $params['--force'] = true;
-        }
+        $this->call('vendor:publish', $params);
+    }
+
+    private function publishControllers()
+    {
+        $params = [
+            '--provider' => self::SERVICE_PROVIDER_NAMESPACE,
+            '--tag'      => "controllers"
+        ];
 
         $this->call('vendor:publish', $params);
     }

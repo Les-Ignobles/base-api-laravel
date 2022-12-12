@@ -19,7 +19,7 @@ abstract class BaseUseCaseGeneratorCommand extends GeneratorCommand
     {
         return [
             '{{ name }}'      => $this->getNameInput(),
-            '{{ namespace }}' => $this->getDomainNamespace() . '\\' . $this->getDomainInput() . '\Usecases\\' . $this->getNameInput(),
+            '{{ namespace }}' => $this->getFileNamespace(),
             '{{ class }}'     => $this->getClassName()
         ];
     }
@@ -49,6 +49,11 @@ abstract class BaseUseCaseGeneratorCommand extends GeneratorCommand
         return config(PackageServiceProvider::BASE_API_CONFIG_NAME . '.console.domain_namespace');
     }
 
+    protected function getFileNamespace()
+    {
+        return $this->getDomainNamespace() . '\\' . $this->getDomainInput() . '\Usecases\\' . $this->getNameInput() . '\\' . $this->getVersionInput();
+    }
+
     protected function getDomainPath()
     {
         return config(PackageServiceProvider::BASE_API_CONFIG_NAME . '.console.domain_path');
@@ -71,6 +76,19 @@ abstract class BaseUseCaseGeneratorCommand extends GeneratorCommand
 
     protected function getPath($name): string
     {
-        return $this->getDomainPath() . '/' . $this->getDomainInput() . '/Usecases/' . $this->getNameInput() . '/' . $this->getFileName();
+        $path = [
+            $this->getDomainPath(),
+            $this->getDomainInput(),
+            'Usecases',
+            $this->getNameInput(),
+            $this->getVersionInput(),
+            $this->getFileName()
+        ];
+        return join('/', $path);
+    }
+
+    protected function getVersionInput(): string
+    {
+        return trim($this->option('vers'));
     }
 }

@@ -9,9 +9,12 @@
 namespace LesIgnobles\BaseApiLaravel\Http\Requests;
 
 
-use Illuminate\Http\Request;
+use Illuminate\Foundation\Http\FormRequest;
 
-class BaseApiRequest extends Request
+class BaseApiRequest extends FormRequest
 {
-
+    public function rules(): array
+    {
+        return [];
+    }
 }

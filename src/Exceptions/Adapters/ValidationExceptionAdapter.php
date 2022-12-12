@@ -22,6 +22,7 @@ class ValidationExceptionAdapter extends ApiException
     #[Pure] public function __construct(ValidationException $e)
     {
         $this->validator = $e->validator;
+        $this->metadata = $this->validator->errors()->toArray();
         parent::__construct('Validation error.', $e->code, $e);
     }
 

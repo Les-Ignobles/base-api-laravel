@@ -22,6 +22,7 @@ class ExceptionNormalizer
             'exception' => get_class($e),
             'file'      => $e->getFile(),
             'line'      => $e->getLine(),
+            'meta_data' => $e->getMetadata()
         ];
         if ($withTrace) {
             $data['trace'] = collect($e->getTrace())->map(fn($trace) => Arr::except($trace, ['args']))->all();
@@ -35,7 +36,8 @@ class ExceptionNormalizer
         return [
             'message'   => $e->getFrontMessage(),
             'code'      => $e->getCodeReference(),
-            'http_code' => $e->getHttpCode()
+            'http_code' => $e->getHttpCode(),
+            'meta_data' => $e->getMetadata()
         ];
     }
 }

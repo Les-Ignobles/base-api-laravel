@@ -11,7 +11,7 @@ namespace LesIgnobles\BaseApiLaravel\Console\UseCases;
 
 class GenerateUseCaseDataCommand extends BaseUseCaseGeneratorCommand
 {
-    protected $signature = "make:usecase-data {name} {--domain=}";
+    protected $signature = "make:usecase-data {name} {--domain=} {--vers=V1}";
     protected $description = 'Create new UseCase Data class';
     protected $type = 'Data';
 

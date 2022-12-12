@@ -17,6 +17,7 @@ class ApiException extends \Exception
     protected int $httpCode = 500;
     protected string $codeRef = 'E000000';
     protected int $level = self::COMMON;
+    protected array $metadata = [];
 
     public function getFrontMessage(): string
     {
@@ -49,5 +50,10 @@ class ApiException extends \Exception
     public function setHttpCode(int $httpCode)
     {
         $this->httpCode = $httpCode;
+    }
+
+    public function getMetadata(): array
+    {
+        return $this->metadata;
     }
 }

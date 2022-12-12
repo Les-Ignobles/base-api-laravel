@@ -11,7 +11,7 @@ namespace LesIgnobles\BaseApiLaravel\Console\UseCases;
 
 class GenerateUseCaseCommand extends BaseUseCaseGeneratorCommand
 {
-    protected $signature = "make:usecase {name} {--domain=}";
+    protected $signature = "make:usecase {name} {--domain=} {--vers=V1}";
     protected $description = 'Create new UseCase class';
     protected $type = 'UseCase';
 
@@ -32,7 +32,8 @@ class GenerateUseCaseCommand extends BaseUseCaseGeneratorCommand
     {
         $this->call('make:usecase-request', [
             'name'   => $this->getNameInput(),
-            '--domain' => $this->getDomainInput()
+            '--domain' => $this->getDomainInput(),
+            '--vers' => $this->getVersionInput(),
         ]);
     }
 
@@ -40,7 +41,8 @@ class GenerateUseCaseCommand extends BaseUseCaseGeneratorCommand
     {
         $this->call('make:usecase-data', [
             'name'   => $this->getNameInput(),
-            '--domain' => $this->getDomainInput()
+            '--domain' => $this->getDomainInput(),
+            '--vers' => $this->getVersionInput(),
         ]);
     }
 
@@ -48,7 +50,8 @@ class GenerateUseCaseCommand extends BaseUseCaseGeneratorCommand
     {
         $this->call('make:usecase-response', [
             'name'   => $this->getNameInput(),
-            '--domain' => $this->getDomainInput()
+            '--domain' => $this->getDomainInput(),
+            '--vers' => $this->getVersionInput(),
         ]);
     }
 }

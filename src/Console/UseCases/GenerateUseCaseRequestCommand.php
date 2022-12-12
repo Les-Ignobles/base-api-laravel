@@ -11,7 +11,7 @@ namespace LesIgnobles\BaseApiLaravel\Console\UseCases;
 
 class GenerateUseCaseRequestCommand extends BaseUseCaseGeneratorCommand
 {
-    protected $signature = "make:usecase-request {name} {--domain=}";
+    protected $signature = "make:usecase-request {name} {--domain=} {--vers=V1}";
     protected $description = 'Create new UseCase Request class';
     protected $type = 'Request';
 

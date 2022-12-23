@@ -35,7 +35,7 @@ class InstallPackageCommand extends Command
     {
         $params = [
             '--provider' => self::SERVICE_PROVIDER_NAMESPACE,
-            '--tag'      => "config"
+            '--tag'      => 'config'
         ];
 
         $this->call('vendor:publish', $params);

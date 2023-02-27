@@ -19,11 +19,6 @@ class HttpExceptionAdapter extends ApiException
     {
         $this->httpCode = $e->getStatusCode();
 
-        parent::__construct($e->getMessage(), $e->getCode(), $e->getPrevious());
-    }
-
-    public function getFrontMessage(): string
-    {
-        return "Une erreur s'est produite.";
+        parent::__construct($e->getMessage());
     }
 }

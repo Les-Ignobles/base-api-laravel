@@ -16,13 +16,14 @@ class ExceptionNormalizer
     public static function devNormalize(ApiException $e, bool $withTrace = true): array
     {
         $data = [
-            'message'   => $e->getMessage(),
-            'http_code' => $e->getHttpCode(),
-            'ref'       => $e->getCodeReference(),
-            'exception' => get_class($e),
-            'file'      => $e->getFile(),
-            'line'      => $e->getLine(),
-            'meta_data' => $e->getMetadata()
+            'debug_message' => $e->getMessage(),
+            'message'       => $e->getFrontMessage(),
+            'http_code'     => $e->getHttpCode(),
+            'ref'           => $e->getCodeReference(),
+            'exception'     => get_class($e),
+            'file'          => $e->getFile(),
+            'line'          => $e->getLine(),
+            'meta_data'     => $e->getMetadata()
         ];
         if ($withTrace) {
             $data['trace'] = collect($e->getTrace())->map(fn($trace) => Arr::except($trace, ['args']))->all();
@@ -37,7 +38,8 @@ class ExceptionNormalizer
             'message'   => $e->getFrontMessage(),
             'code'      => $e->getCodeReference(),
             'http_code' => $e->getHttpCode(),
-            'meta_data' => $e->getMetadata()
+            'meta_data' => $e->getMetadata(),
+            'ref'       => $e->getCodeReference()
         ];
     }
 }

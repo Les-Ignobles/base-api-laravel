@@ -19,11 +19,6 @@ class NotFoundHttpExceptionAdapter extends ApiException
 
     #[Pure] public function __construct(NotFoundHttpException $e)
     {
-        parent::__construct('Route not found.', $e->getCode(), $e);
-    }
-
-    public function getFrontMessage(): string
-    {
-        return 'Route not found.';
+        parent::__construct('Route not found.');
     }
 }

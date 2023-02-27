@@ -28,9 +28,21 @@ abstract class BaseRepository
         return $this->model->newQuery();
     }
 
+    public function create(array $attributes): Model
+    {
+        return $this->query()->create($attributes);
+    }
+
     public function update(int $id, array $data): int
     {
         return $this->query()->where('id', $id)->update($data);
+    }
+
+    public static function getInstance(): static
+    {
+        /** @var static $instance */
+        $instance = resolve(static::class);
+        return $instance;
     }
 
 }

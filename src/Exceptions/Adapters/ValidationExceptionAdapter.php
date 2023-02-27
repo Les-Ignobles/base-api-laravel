@@ -23,7 +23,7 @@ class ValidationExceptionAdapter extends ApiException
     {
         $this->validator = $e->validator;
         $this->metadata = $this->validator->errors()->toArray();
-        parent::__construct('Validation error.', $e->code, $e);
+        parent::__construct('Validation error.');
     }
 
     public function getFrontMessage(): string

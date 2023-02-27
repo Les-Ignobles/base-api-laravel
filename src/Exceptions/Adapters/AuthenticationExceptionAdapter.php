@@ -19,7 +19,7 @@ class AuthenticationExceptionAdapter extends ApiException
 
     #[Pure] public function __construct(AuthenticationException $e)
     {
-        parent::__construct($e->getMessage(), $e->getCode(), $e->getPrevious());
+        parent::__construct($e->getMessage());
     }
 
     public function getFrontMessage(): string

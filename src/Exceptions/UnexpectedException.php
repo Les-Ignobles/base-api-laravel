@@ -17,6 +17,6 @@ class UnexpectedException extends ApiException
 
     public function __construct(Throwable $e)
     {
-        parent::__construct($e->getMessage(), 0, $e);
+        parent::__construct($e->getMessage());
     }
 }

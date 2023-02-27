@@ -9,6 +9,8 @@
 namespace LesIgnobles\BaseApiLaravel\Exceptions;
 
 
+use Throwable;
+
 class ApiException extends \Exception
 {
     const COMMON = 1;
@@ -18,10 +20,17 @@ class ApiException extends \Exception
     protected string $codeRef = 'E000000';
     protected int $level = self::COMMON;
     protected array $metadata = [];
+    protected string $frontMessage;
+
+    public function __construct($message = "", $frontMessage = "Une erreur s'est produite.", Throwable $previous = null)
+    {
+        $this->frontMessage = $frontMessage;
+        parent::__construct($message, 0, $previous);
+    }
 
     public function getFrontMessage(): string
     {
-        return "Une erreur s'est produite.";
+        return $this->frontMessage;
     }
 
     /**

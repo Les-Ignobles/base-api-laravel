@@ -33,6 +33,11 @@ abstract class BaseRepository
         return $this->query()->create($attributes);
     }
 
+    public function findByIdOrFail(int|string $id): Model
+    {
+        return $this->query()->findOrFail($id);
+    }
+
     public function update(int $id, array $data): int
     {
         return $this->query()->where('id', $id)->update($data);

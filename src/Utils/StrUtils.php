@@ -21,4 +21,9 @@ class StrUtils
 
         return $result;
     }
+
+    public static function toArray(string $data, string $separator = ','): array
+    {
+        return (empty($data) || !isset($data)) ? [] : explode($separator, $data);
+    }
 }

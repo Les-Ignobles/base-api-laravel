@@ -13,8 +13,11 @@
             "email": "theo@lesignobles.com"
         }
     ],
+    "require": {
+        "php": "^8.1"
+    },
     "require-dev": {
-        "orchestra/testbench": "^7.15"
+        "orchestra/testbench": "^8.3"
     },
     "extra": {
         "laravel": {
